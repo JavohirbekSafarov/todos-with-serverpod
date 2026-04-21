@@ -64,7 +64,6 @@ flutter run
 ```
 
 Notes:
-- Replace `https://github.com/<your-org>/smart_todos.git` with your repository URL.
 - If you run the server without Docker, ensure the database and environment config in `smart_todos_server/config/` are set and run the Serverpod entrypoint.
 
 ## Configuration
@@ -84,23 +83,23 @@ Refer to `smart_todos_server/lib/src/endpoints/` for the implementation and `sma
 
 Home screen (todo list):
 
-![Home Screen](screenshots/home_ui.jpg)
+![Home Screen](screenshots/home_ui.webp)
 
 Add todo flow:
 
-![Add Todo](screenshots/add_todo_ui.jpg)
+![Add Todo](screenshots/add_todo_ui.webp)
 
 Pull-to-refresh / sync:
 
-![Pull to Refresh](screenshots/pull_refresh_ui.jpg)
+![Pull to Refresh](screenshots/pull_refresh_ui.webp)
 
 Empty state:
 
-![Empty State](screenshots/empty_state_ui.jpg)
+![Empty State](screenshots/empty_state_ui.webp)
 
 Backend performance / logs example:
 
-![Backend Metrics](screenshots/backend_speed.png)
+![Backend Metrics](screenshots/backend_speed.webp)
 
 If any image does not render, ensure the image files are present in the `screenshots/` folder and that the filenames match exactly.
 
