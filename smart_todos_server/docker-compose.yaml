@@ -1,0 +1,44 @@
+services:
+  # Development services
+  postgres:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "8090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: smart_todos
+      POSTGRES_PASSWORD: "jg4XMmDJYEWVD_Lzv5cVI4ynxniqPTZW"
+    volumes:
+      - smart_todos_data:/var/lib/postgresql/data
+
+  # redis:
+  #   image: redis:6.2.6
+  #   ports:
+  #     - "8091:6379"
+  #   command: redis-server --requirepass "F-oSgDwj4n7w1M4j_q25zT1HDurQMc6c"
+  #   environment:
+  #     - REDIS_REPLICATION_MODE=master
+
+  # Test services
+  postgres_test:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "9090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: smart_todos_test
+      POSTGRES_PASSWORD: "pvHt_A4DvbqS7cGAOnPXKJYXCthx8c_X"
+    volumes:
+      - smart_todos_test_data:/var/lib/postgresql/data
+
+  # redis_test:
+  #   image: redis:6.2.6
+  #   ports:
+  #     - "9091:6379"
+  #   command: redis-server --requirepass "jgX9TZ0GKdSsIT7MxqOnQaTyPnAYoMmL"
+  #   environment:
+  #     - REDIS_REPLICATION_MODE=master
+
+volumes:
+  smart_todos_data:
+  smart_todos_test_data:

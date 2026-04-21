@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "smart_todos_flutter",
+            "cwd": "${workspaceFolder}/smart_todos_flutter",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "smart_todos_server",
+            "cwd": "${workspaceFolder}/smart_todos_server",
+            "request": "launch",
+            "type": "dart",
+            "preLaunchTask": "docker_compose_up",
+            "program": "bin/main.dart",
+            "env": {
+                "SERVERPOD_PASSWORD_database": "jg4XMmDJYEWVD_Lzv5cVI4ynxniqPTZW"
+            },
+            "args": [
+                "--apply-migrations"
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "smart_todos (full stack)",
+            "configurations": [
+                "smart_todos_server",
+                "smart_todos_flutter"
+            ],
+            "presentation": {
+                "order": 1
+            }
+        }
+    ]
+}
