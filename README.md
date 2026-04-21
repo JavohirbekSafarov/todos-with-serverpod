@@ -81,18 +81,20 @@ Refer to `smart_todos_server/lib/src/endpoints/` for the implementation and `sma
 
 ## Screenshots
 
-Phone UI screenshots (horizontal):
+Phone UI screenshots (table):
 
-<p align="center">
-	<img src="screenshots/home_ui.webp" alt="Home Screen" style="width:23%; margin-right:1%;" />
-	<img src="screenshots/add_todo_ui.webp" alt="Add Todo" style="width:23%; margin-right:1%;" />
-	<img src="screenshots/pull_refresh_ui.webp" alt="Pull to Refresh" style="width:23%; margin-right:1%;" />
-	<img src="screenshots/empty_state_ui.webp" alt="Empty State" style="width:23%;" />
-</p>
+<table>
+	<tr>
+		<td><img src="screenshots/home_ui.webp" alt="Home Screen" width="220"/></td>
+		<td><img src="screenshots/add_todo_ui.webp" alt="Add Todo" width="220"/></td>
+		<td><img src="screenshots/pull_refresh_ui.webp" alt="Pull to Refresh" width="220"/></td>
+		<td><img src="screenshots/empty_state_ui.webp" alt="Empty State" width="220"/></td>
+	</tr>
+</table>
 
 Backend performance / logs example:
 
-![Backend Metrics](screenshots/backend_speed.png)
+![Backend Metrics](screenshots/backend_speed.webp)
 
 If any image does not render, ensure the image files are present in the `screenshots/` folder and that the filenames match exactly.
 
