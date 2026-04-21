@@ -85,10 +85,10 @@ Phone UI screenshots (table):
 
 <table>
 	<tr>
-		<td><img src="screenshots/home_ui.webp" alt="Home Screen" width="220"/></td>
-		<td><img src="screenshots/add_todo_ui.webp" alt="Add Todo" width="220"/></td>
-		<td><img src="screenshots/pull_refresh_ui.webp" alt="Pull to Refresh" width="220"/></td>
-		<td><img src="screenshots/empty_state_ui.webp" alt="Empty State" width="220"/></td>
+		<td><img src="screenshots/home_ui.webp" alt="Home Screen" width="100%"/></td>
+		<td><img src="screenshots/add_todo_ui.webp" alt="Add Todo" width="100%"/></td>
+		<td><img src="screenshots/pull_refresh_ui.webp" alt="Pull to Refresh" width="100%"/></td>
+		<td><img src="screenshots/empty_state_ui.webp" alt="Empty State" width="100%"/></td>
 	</tr>
 </table>
 
