@@ -188,9 +188,12 @@ class _TodosPageState extends State<TodosPage> {
                 itemBuilder: (context, index) {
                   var todo = _todos[index];
                   return ListTile(
-                    leading: Checkbox(
-                      value: todo.isCompleted,
-                      onChanged: (value) => changeChecked(todo, index),
+                    leading: SizedBox(
+                      width: 18,
+                      child: Checkbox(
+                        value: todo.isCompleted,
+                        onChanged: (value) => changeChecked(todo, index),
+                      ),
                     ),
                     title: Text(
                       todo.title,
