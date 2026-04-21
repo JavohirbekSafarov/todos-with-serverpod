@@ -87,11 +87,7 @@ Home screen (todo list):
 
 Add todo flow:
 
-![Add Todo](screenshots/add_todo_ui.webp)
-
-Pull-to-refresh / sync:
-
-![Pull to Refresh](screenshots/pull_refresh_ui.webp)
+![Add Todo](screenshots/add_todo_ui.webp) Pull-to-refresh / sync: ![Pull to Refresh](screenshots/pull_refresh_ui.webp)
 
 Empty state:
 
