@@ -84,10 +84,10 @@ Refer to `smart_todos_server/lib/src/endpoints/` for the implementation and `sma
 Phone UI screenshots (horizontal):
 
 <p align="center">
-	<img src="screenshots/home_ui.jpg" alt="Home Screen" style="width:23%; margin-right:1%;" />
-	<img src="screenshots/add_todo_ui.jpg" alt="Add Todo" style="width:23%; margin-right:1%;" />
-	<img src="screenshots/pull_refresh_ui.jpg" alt="Pull to Refresh" style="width:23%; margin-right:1%;" />
-	<img src="screenshots/empty_state_ui.jpg" alt="Empty State" style="width:23%;" />
+	<img src="screenshots/home_ui.webp" alt="Home Screen" style="width:23%; margin-right:1%;" />
+	<img src="screenshots/add_todo_ui.webp" alt="Add Todo" style="width:23%; margin-right:1%;" />
+	<img src="screenshots/pull_refresh_ui.webp" alt="Pull to Refresh" style="width:23%; margin-right:1%;" />
+	<img src="screenshots/empty_state_ui.webp" alt="Empty State" style="width:23%;" />
 </p>
 
 Backend performance / logs example:
