@@ -81,21 +81,18 @@ Refer to `smart_todos_server/lib/src/endpoints/` for the implementation and `sma
 
 ## Screenshots
 
-Home screen (todo list):
+Phone UI screenshots (horizontal):
 
-![Home Screen](screenshots/home_ui.webp)
-
-Add todo flow:
-
-![Add Todo](screenshots/add_todo_ui.webp) Pull-to-refresh / sync: ![Pull to Refresh](screenshots/pull_refresh_ui.webp)
-
-Empty state:
-
-![Empty State](screenshots/empty_state_ui.webp)
+<p align="center">
+	<img src="screenshots/home_ui.jpg" alt="Home Screen" style="width:23%; margin-right:1%;" />
+	<img src="screenshots/add_todo_ui.jpg" alt="Add Todo" style="width:23%; margin-right:1%;" />
+	<img src="screenshots/pull_refresh_ui.jpg" alt="Pull to Refresh" style="width:23%; margin-right:1%;" />
+	<img src="screenshots/empty_state_ui.jpg" alt="Empty State" style="width:23%;" />
+</p>
 
 Backend performance / logs example:
 
-![Backend Metrics](screenshots/backend_speed.webp)
+![Backend Metrics](screenshots/backend_speed.png)
 
 If any image does not render, ensure the image files are present in the `screenshots/` folder and that the filenames match exactly.
 
