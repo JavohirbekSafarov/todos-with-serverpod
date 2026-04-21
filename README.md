@@ -50,7 +50,7 @@ Clone the repository and start the app locally with Docker (recommended) and Flu
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-org>/smart_todos.git
+git clone https://github.com/JavohirbekSafarov/todos-with-serverpod.git
 cd smart_todos
 
 # Start the server with Docker Compose
