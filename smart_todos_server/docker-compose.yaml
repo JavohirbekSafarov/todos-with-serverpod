@@ -1,44 +1,90 @@
 services:
-  # Development services
+  # Development Database
   postgres:
     image: pgvector/pgvector:pg16
+    container_name: smart_todos_postgres
     ports:
-      - "8090:5432"
+      - "${POSTGRES_EXTERNAL_PORT:-8090}:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_DB: smart_todos
-      POSTGRES_PASSWORD: "jg4XMmDJYEWVD_Lzv5cVI4ynxniqPTZW"
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-smart_todos}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-jg4XMmDJYEWVD_Lzv5cVI4ynxniqPTZW}
+      POSTGRES_INITDB_ARGS: "--locale=en_US.UTF-8"
     volumes:
       - smart_todos_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-smart_todos}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - smart_todos_network
 
-  # redis:
-  #   image: redis:6.2.6
-  #   ports:
-  #     - "8091:6379"
-  #   command: redis-server --requirepass "F-oSgDwj4n7w1M4j_q25zT1HDurQMc6c"
-  #   environment:
-  #     - REDIS_REPLICATION_MODE=master
-
-  # Test services
+  # Test Database
   postgres_test:
     image: pgvector/pgvector:pg16
+    container_name: smart_todos_postgres_test
     ports:
-      - "9090:5432"
+      - "${POSTGRES_TEST_EXTERNAL_PORT:-9090}:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_DB: smart_todos_test
-      POSTGRES_PASSWORD: "pvHt_A4DvbqS7cGAOnPXKJYXCthx8c_X"
+      POSTGRES_USER: ${POSTGRES_TEST_USER:-postgres}
+      POSTGRES_DB: ${POSTGRES_TEST_DB:-smart_todos_test}
+      POSTGRES_PASSWORD: ${POSTGRES_TEST_PASSWORD:-pvHt_A4DvbqS7cGAOnPXKJYXCthx8c_X}
+      POSTGRES_INITDB_ARGS: "--locale=en_US.UTF-8"
     volumes:
       - smart_todos_test_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_TEST_USER:-postgres} -d ${POSTGRES_TEST_DB:-smart_todos_test}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - smart_todos_network
 
-  # redis_test:
-  #   image: redis:6.2.6
+  # Redis (commented out)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: smart_todos_redis
   #   ports:
-  #     - "9091:6379"
-  #   command: redis-server --requirepass "jgX9TZ0GKdSsIT7MxqOnQaTyPnAYoMmL"
-  #   environment:
-  #     - REDIS_REPLICATION_MODE=master
+  #     - "8091:6379"
+  #   command: redis-server --requirepass ${REDIS_PASSWORD:-F-oSgDwj4n7w1M4j_q25zT1HDurQMc6c}
+  #   volumes:
+  #     - smart_todos_redis_data:/data
+  #   networks:
+  #     - smart_todos_network
+
+  # Serverpod Server
+  serverpod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smart_todos_server
+    ports:
+      - "${SERVER_PORT:-8080}:8080"
+      - "${INSIGHTS_PORT:-8081}:8081"
+      - "${WEB_PORT:-8082}:8082"
+    environment:
+      RUNMODE: ${RUNMODE:-production}
+      SERVERID: ${SERVERID:-default}
+      LOGGING: ${LOGGING:-normal}
+      ROLE: ${ROLE:-monolith}
+      POSTGRES_HOST: ${POSTGRES_HOST:-postgres}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-jg4XMmDJYEWVD_Lzv5cVI4ynxniqPTZW}
+      POSTGRES_DB: ${POSTGRES_DB:-smart_todos}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - smart_todos_network
+    restart: unless-stopped
 
 volumes:
   smart_todos_data:
   smart_todos_test_data:
+  # smart_todos_redis_data:
+
+networks:
+  smart_todos_network:
+    driver: bridge
