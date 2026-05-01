@@ -22,10 +22,10 @@ ENV SERVERID=default
 ENV LOGGING=normal
 ENV ROLE=monolith
 
-ENV POSTGRES_HOST=pgsql
+ENV POSTGRES_HOST=psql
 ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=qaz123++
-ENV POSTGRES_DB=smart_todos
+ENV POSTGRES_DB=db_smart_todos
 ENV POSTGRES_PORT=5432
 
 # Copy runtime dependencies

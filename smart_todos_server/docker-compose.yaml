@@ -58,7 +58,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    //image: javohirbekkuaf2024/smart_todo_server:latest
+    #image: javohirbekkuaf2024/smart_todo_server:latest
     container_name: smart_todos_server
     ports:
       - "${SERVER_PORT:-8080}:8080"
@@ -69,7 +69,7 @@ services:
       SERVERID: ${SERVERID:-default}
       LOGGING: ${LOGGING:-normal}
       ROLE: ${ROLE:-monolith}
-      POSTGRES_HOST: ${POSTGRES_HOST:-pgsql}
+      POSTGRES_HOST: ${POSTGRES_HOST:-psql}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-qaz123++}
       POSTGRES_DB: ${POSTGRES_DB:-db_smart_todos}
