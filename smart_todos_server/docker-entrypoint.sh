@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Migratsiyalarni qo'llash (ixtiyoriy)
-./server --mode $SERVERPOD_MODE --apply-migrations
+echo "Running migrations..."
+./server --mode $RUNMODE --apply-migrations
 
-# Serverni ishga tushirish
-exec ./server --mode $SERVERPOD_MODE
+echo "Starting server..."
+exec ./server --mode $RUNMODE
