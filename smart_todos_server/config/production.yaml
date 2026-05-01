@@ -26,7 +26,7 @@ webServer:
   publicScheme: https
 
 database:
-  host: psql
+  host: postgres
   port: 5432
   name: db_smart_todos
   user: postgres

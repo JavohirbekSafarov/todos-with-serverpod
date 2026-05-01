@@ -72,7 +72,7 @@ services:
       POSTGRES_HOST: ${POSTGRES_HOST:-psql}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-qaz123++}
-      POSTGRES_DB: ${POSTGRES_DB:-db_smart_todos}
+      POSTGRES_DB: "db_smart_todos"
       POSTGRES_PORT: ${POSTGRES_PORT:-5432}
     depends_on:
       postgres:
