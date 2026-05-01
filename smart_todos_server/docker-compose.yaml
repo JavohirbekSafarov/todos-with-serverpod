@@ -55,9 +55,10 @@ services:
 
   # Serverpod Server
   serverpod:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: javohirbekkuaf2024/smart_todo_server:latest
     container_name: smart_todos_server
     ports:
       - "${SERVER_PORT:-8080}:8080"

@@ -41,8 +41,9 @@ COPY --from=build /app/migrations/ /app/migrations/
 COPY --from=build /app/pubspec.* /app/
 
 # Copy dart SDK tools for migrations (needed for migration execution)
-COPY --from=build /usr/local/bin/dart /usr/local/bin/dart
-COPY --from=build /usr/local/bin/pub /usr/local/bin/pub
+# COPY --from=build /usr/local/bin/dart /usr/local/bin/dart
+# RUN  mkdir /usr/local/bin/pub
+# COPY --from=build /usr/local/bin/pub /usr/local/bin/pub
 
 # This file is required to enable the endpoint log filter in Insights.
 COPY --from=build /app/lib/src/generated/protocol.yaml /app/lib/src/generated/protocol.yaml
