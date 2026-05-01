@@ -12,7 +12,7 @@ late String serverUrl;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final serverUrl = "http://192.168.213.31:8080/";
+  final serverUrl = "http://192.168.213.55:8080/";
   await getServerUrl();
 
   client = Client(serverUrl)
