@@ -106,7 +106,7 @@ class _TodosPageState extends State<TodosPage> {
                           .then((todo) {
                             if (mounted) {
                               setState(() {
-                                _todos.add(todo);
+                                _todos.insert(0, todo);
                               });
                               Navigator.of(context).pop();
                             }

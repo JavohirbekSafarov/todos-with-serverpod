@@ -38,10 +38,10 @@ database:
   #maxConnectionCount: 10 # Defaults to 10, a negative or null value removes the limit
 
 # This is the setup for Redis.
-redis:
-  enabled: false
-  host: localhost
-  port: 8091
+# redis:
+#   enabled: false
+#   host: localhost
+#   port: 8091
   #user: # defaults to empty
   #requireSsl: true # defaults to false
 

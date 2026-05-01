@@ -1,0 +1,41 @@
+services:
+  # Development services
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: smart_todos_postgres
+    ports:
+      - "8090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: db_smart_todos
+      POSTGRES_PASSWORD: qaz123++
+    volumes:
+      - smart_todos_data:/var/lib/postgresql/data
+
+  serverpod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smart_todos_server
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+      - "8082:8082"
+    environment:
+      RUNMODE: ${RUNMODE:-production}
+      SERVERID: ${SERVERID:-default}
+      LOGGING: ${LOGGING:-normal}
+      ROLE: ${ROLE:-monolith}
+      POSTGRES_HOST: ${POSTGRES_HOST:-postgres}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-jg4XMmDJYEWVD_Lzv5cVI4ynxniqPTZW}
+      POSTGRES_DB: ${POSTGRES_DB:-smart_todos}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - smart_todos_network
+    restart: unless-stopped
+volumes:
+  smart_todos_data:
