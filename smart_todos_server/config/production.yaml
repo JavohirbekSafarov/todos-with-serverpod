@@ -9,21 +9,21 @@ apiServer:
   port: 8080
   publicHost: 192.168.213.55
   publicPort: 443
-  publicScheme: https
+  publicScheme: http
 
 # Configuration for the Insights server.
 insightsServer:
   port: 8081
   publicHost: 192.168.213.55
   publicPort: 443
-  publicScheme: https
+  publicScheme: http
 
 # Configuration for the web server.
 webServer:
   port: 8082
   publicHost: 192.168.213.55
   publicPort: 443
-  publicScheme: https
+  publicScheme: http
 
 database:
   host: smart_todos_postgres
