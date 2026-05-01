@@ -5,7 +5,6 @@ COPY . .
 
 # Install dependencies and compile the server executable
 RUN dart pub get
-RUN dart run serverpod_cli:serverpod generate 
 RUN dart compile exe bin/main.dart -o bin/server
 
 # Final stage

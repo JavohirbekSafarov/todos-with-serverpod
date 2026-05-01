@@ -1,5 +1,4 @@
 services:
-  # Development Database
   postgres:
     image: pgvector/pgvector:pg16
     container_name: smart_todos_postgres
@@ -13,47 +12,12 @@ services:
     volumes:
       - smart_todos_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-smart_todos}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-db_smart_todos}"]
       interval: 5s
       timeout: 5s
       retries: 5
     networks:
       - ijobs_network
-
-  # Test Database
-  # postgres_test:
-  #   image: pgvector/pgvector:pg16
-  #   container_name: smart_todos_postgres_test
-  #   ports:
-  #     - "${POSTGRES_TEST_EXTERNAL_PORT:-9090}:5432"
-  #   environment:
-  #     POSTGRES_USER: ${POSTGRES_TEST_USER:-postgres}
-  #     POSTGRES_DB: ${POSTGRES_TEST_DB:-smart_todos_test}
-  #     POSTGRES_PASSWORD: ${POSTGRES_TEST_PASSWORD:-pvHt_A4DvbqS7cGAOnPXKJYXCthx8c_X}
-  #     POSTGRES_INITDB_ARGS: "--locale=en_US.UTF-8"
-  #   volumes:
-  #     - smart_todos_test_data:/var/lib/postgresql/data
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_TEST_USER:-postgres} -d ${POSTGRES_TEST_DB:-smart_todos_test}"]
-  #     interval: 10s
-  #     timeout: 5s
-  #     retries: 5
-  #   networks:
-  #     - ijobs_network
-
-  # Redis (commented out)
-  # redis:
-  #   image: redis:7-alpine
-  #   container_name: smart_todos_redis
-  #   ports:
-  #     - "8091:6379"
-  #   command: redis-server --requirepass ${REDIS_PASSWORD:-F-oSgDwj4n7w1M4j_q25zT1HDurQMc6c}
-  #   volumes:
-  #     - smart_todos_redis_data:/data
-  #   networks:
-  #     - ijobs_network
-
-  # Serverpod Server
   serverpod:
     build:
       context: .
@@ -84,7 +48,6 @@ services:
 volumes:
   smart_todos_data:
   smart_todos_test_data:
-  # smart_todos_redis_data:
 
 networks:
   ijobs_network:
